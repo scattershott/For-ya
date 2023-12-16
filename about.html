@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adjectives for a Girl Best Friend</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          #00061a,
+          #02010d
+        ); /* Darker night sky gradient background */
+        color: #fff;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+      }
+
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        border-radius: 50%;
+        animation: twinkling 2s infinite;
+      }
+
+      .container {
+        text-align: center;
+        z-index: 1;
+      }
+
+      .card {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      #adjectiveList {
+        list-style: none;
+        padding: 0;
+      }
+
+      #adjectiveList li {
+        font-size: 24px;
+        opacity: 0.5;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      #adjectiveList li.active {
+        opacity: 1;
+      }
+
+      @keyframes twinkling {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scroll {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        5%,
+        95% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="container">
+      <div class="card" id="lyricsCard">
+        <ul id="adjectiveList">
+          <li>Supportive</li>
+          <li>Caring</li>
+          <li>Adventurous</li>
+          <li>Kind-hearted **Not at all**</li>
+          <li>Kutti</li>
+          <li>Funny</li>
+          <li>Understanding</li>
+          <li>Trustworthy</li>
+          <li>Super Strong</li>
+          <li>Penthouse Dreamer</li>
+          <li>Amazing</li>
+          <li>Penthouse Dreamer</li>
+
+          <li>Beautiful</li>
+          <li>Brilliant</li>
+          <li>Paratha Maker</li>
+          <li>Irreplaceable</li>
+          <li>Hardcore</li>
+          <li>6ft Big Hands Lover</li>
+        </ul>
+        <a href="index.html" class="btn-go-home">GO BACK HOME</a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const adjectiveList = document.getElementById("adjectiveList");
+        const adjectives = adjectiveList.getElementsByTagName("li");
+        let currentAdjectiveIndex = 0;
+
+        function highlightAdjective() {
+          for (let i = 0; i < adjectives.length; i++) {
+            adjectives[i].classList.remove("active");
+          }
+
+          adjectives[currentAdjectiveIndex].classList.add("active");
+
+          currentAdjectiveIndex =
+            (currentAdjectiveIndex + 1) % adjectives.length;
+
+          setTimeout(highlightAdjective, 1000); // Adjust the time interval (in milliseconds) between highlights
+        }
+
+        highlightAdjective();
+      });
+    </script>
+    <script>
+      // Dynamically create twinkling stars
+      document.addEventListener("DOMContentLoaded", function () {
+        const starsContainer = document.querySelector(".stars");
+
+        for (let i = 0; i < 100; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * 100}vh`;
+          starsContainer.appendChild(star);
+        }
+      });
+    </script>
+  </body>
+</html>
